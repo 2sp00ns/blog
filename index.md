@@ -1,4 +1,4 @@
 ---
-title: John Spooner
+title: New Posts
 ---
 
