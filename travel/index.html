@@ -1,1 +1,97 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #world-map {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #b3d9ff, #0059b3); /* Blue gradient background */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Example continent shapes */
+        .continent {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.5); /* Semi-transparent white shadow */
+        }
+
+        .africa {
+            top: 25%;
+            left: 30%;
+            width: 30%;
+            height: 40%;
+        }
+
+        .europe {
+            top: 20%;
+            left: 50%;
+            width: 20%;
+            height: 20%;
+        }
+
+        .asia {
+            top: 10%;
+            left: 65%;
+            width: 50%;
+            height: 40%;
+        }
+
+        .north-america {
+            top: 15%;
+            left: 20%;
+            width: 30%;
+            height: 20%;
+        }
+
+        .south-america {
+            top: 40%;
+            left: 25%;
+            width: 20%;
+            height: 30%;
+        }
+
+        .antarctica {
+            top: 70%;
+            left: 50%;
+            width: 10%;
+            height: 5%;
+            background: rgba(255, 255, 255, 0.8); /* More opaque white */
+            box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.8); /* More opaque white shadow */
+        }
+
+        .australia {
+            top: 65%;
+            left: 75%;
+            width: 15%;
+            height: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div id="world-map">
+        <!-- Continent shapes -->
+        <div class="continent africa"></div>
+        <div class="continent europe"></div>
+        <div class="continent asia"></div>
+        <div class="continent north-america"></div>
+        <div class="continent south-america"></div>
+        <div class="continent antarctica"></div>
+        <div class="continent australia"></div>
+    </div>
+</body>
+</html>
