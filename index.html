@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickable World Map</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
 
+    svg {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .country {
+      fill: #ccc;
+      stroke: #fff;
+      stroke-width: 1;
+    }
+
+    .country:hover {
+      fill: #999;
+    }
+  </style>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <svg id="world-map" viewBox="0 0 1000 500"></svg>
+
+  <script>
+    // Define the dimensions for the SVG
+    var width = 1000;
+    var height = 500;
+
+    // Create the SVG element
+    var svg = d3.select("#world-map");
+
+    // Define the projection for the map
+    var projection = d3.geoMercator()
+                       .scale(120)
+                       .translate([width / 2, height / 1.5]);
+
+    // Define the path generator
+    var path = d3.geoPath()
+                 .projection(projection);
+
+    // Load the GeoJSON data
+    d3.json("world.json").then(function(world) {
+      // Draw the countries
+      svg.selectAll("path")
+         .data(world.features)
+         .enter().append("path")
+         .attr("d", path)
+         .attr("class", "country")
+         .on("click", function(d) {
+           // Handle click event for each country
+           console.log("Clicked on", d.properties.name);
+         });
+    });
+  </script>
+</body>
+</html>
